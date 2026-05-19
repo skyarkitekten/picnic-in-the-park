@@ -1,0 +1,5 @@
+{
+  "appHost": {
+    "path": "app-host/PicnicPlanner.AppHost/PicnicPlanner.AppHost.csproj"
+  }
+}

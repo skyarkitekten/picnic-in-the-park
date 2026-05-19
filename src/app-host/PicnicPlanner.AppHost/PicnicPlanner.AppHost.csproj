@@ -1,0 +1,22 @@
+<Project Sdk="Aspire.AppHost.Sdk/13.3.0">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>2958f8c1-1cac-4a8e-aaec-2ea3df26a9ec</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.JavaScript" Version="13.3.0" />
+    <PackageReference Include="Aspire.Hosting.Redis" Version="13.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../backend/PicnicPlanner.Planner.Api/PicnicPlanner.Planner.Api.csproj" />
+    <ProjectReference Include="../../services/PicnicPlanner.ParksService/PicnicPlanner.ParksService.csproj" />
+    <ProjectReference Include="../../services/PicnicPlanner.WeatherService/PicnicPlanner.WeatherService.csproj" />
+    <ProjectReference Include="../PicnicPlanner.ServiceDefaults/PicnicPlanner.ServiceDefaults.csproj" IsAspireProjectResource="false" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,6 @@
+@PicnicPlanner.ParksService_HostAddress = http://localhost:5201
+
+GET {{PicnicPlanner.ParksService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
