@@ -20,11 +20,19 @@ Env.TraversePath().Load();
 var projectEndpoint = new Uri(Environment.GetEnvironmentVariable("AZURE_AI_PROJECT_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_AI_PROJECT_ENDPOINT environment variable is not set."));
 var deployment = Environment.GetEnvironmentVariable("AZURE_AI_MODEL_DEPLOYMENT_NAME") ?? "gpt-4o";
+var tenantId = Environment.GetEnvironmentVariable("AZURE_TENANT_ID");
 
 // ── In-memory plan store ──
 var plans = new ConcurrentDictionary<string, PicnicPlan>();
 
-AIAgent agent = new AIProjectClient(projectEndpoint, new DefaultAzureCredential())
+var credentialOptions = new DefaultAzureCredentialOptions();
+if (!string.IsNullOrWhiteSpace(tenantId))
+{
+    credentialOptions.TenantId = tenantId;
+    credentialOptions.AdditionallyAllowedTenants.Add(tenantId);
+}
+
+AIAgent agent = new AIProjectClient(projectEndpoint, new DefaultAzureCredential(credentialOptions))
     .AsAIAgent(
         model: deployment,
         instructions: """
