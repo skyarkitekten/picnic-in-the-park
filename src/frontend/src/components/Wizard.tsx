@@ -69,7 +69,8 @@ export function Wizard({ onSubmit, disabled }: Props) {
           id="budget"
           type="number"
           min={1}
-          step={5}
+          max={2000}
+          step="any"
           value={budget}
           onChange={(e) => setBudget(Number(e.target.value))}
           required

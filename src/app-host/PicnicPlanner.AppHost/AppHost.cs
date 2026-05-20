@@ -6,6 +6,7 @@ var weather = builder.AddProject<Projects.PicnicPlanner_WeatherService>("weather
 var parks = builder.AddProject<Projects.PicnicPlanner_ParksService>("parks-service");
 
 var coordinator = builder.AddProject<Projects.coordinatoragent>("coordinator-agent")
+    .WithHttpEndpoint(targetPort: 8088)
     .WithReference(weather)
     .WithReference(parks)
     .WaitFor(weather)

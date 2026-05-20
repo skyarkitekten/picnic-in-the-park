@@ -8,12 +8,12 @@ export default defineConfig({
     proxy: {
       // Proxy API calls to the planner API service
       '/api': {
-        target: process.env.SERVER_HTTPS || process.env.SERVER_HTTP,
+        target: process.env.PLANNER_API_HTTPS || process.env.PLANNER_API_HTTP,
         changeOrigin: true
       },
       // Proxy coordinator calls to the coordinator agent
       '/coordinator': {
-        target: process.env.services__coordinator_agent__https__0 || process.env.services__coordinator_agent__http__0,
+        target: process.env.COORDINATOR_AGENT_HTTP,
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/coordinator/, '')
       }
