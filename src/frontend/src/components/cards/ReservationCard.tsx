@@ -6,7 +6,9 @@ export function ReservationCard({ data }: Props) {
   return (
     <article className="agent-card" aria-label="Reservation hold">
       <header className="agent-card-header">
-        <span className="agent-card-icon" aria-hidden="true">📋</span>
+        <span className="agent-card-icon" aria-hidden="true">
+          📋
+        </span>
         <h3 className="agent-card-title">Reservation</h3>
       </header>
 

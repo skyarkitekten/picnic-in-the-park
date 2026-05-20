@@ -8,7 +8,9 @@ export function ParksCard({ data }: Props) {
   return (
     <article className="agent-card" aria-label="Park recommendations">
       <header className="agent-card-header">
-        <span className="agent-card-icon" aria-hidden="true">🏞️</span>
+        <span className="agent-card-icon" aria-hidden="true">
+          🏞️
+        </span>
         <h3 className="agent-card-title">Parks</h3>
       </header>
 

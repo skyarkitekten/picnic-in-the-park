@@ -9,7 +9,9 @@ export function BudgetCard({ data, totalBudget }: Props) {
   return (
     <article className="agent-card" aria-label="Budget summary">
       <header className="agent-card-header">
-        <span className="agent-card-icon" aria-hidden="true">💰</span>
+        <span className="agent-card-icon" aria-hidden="true">
+          💰
+        </span>
         <h3 className="agent-card-title">Budget</h3>
       </header>
 
@@ -40,14 +42,10 @@ export function BudgetCard({ data, totalBudget }: Props) {
         <div className="agent-card-footer">
           <div className="budget-totals">
             <span>
-              <strong>Spent:</strong> ${data.total.toFixed(2)} / $
-              {totalBudget.toFixed(2)}
+              <strong>Spent:</strong> ${data.total.toFixed(2)} / ${totalBudget.toFixed(2)}
             </span>
-            <span
-              className={overBudget ? 'budget-over' : 'budget-remaining'}
-            >
-              {overBudget ? 'Over by' : 'Remaining'}: $
-              {Math.abs(data.remaining).toFixed(2)}
+            <span className={overBudget ? 'budget-over' : 'budget-remaining'}>
+              {overBudget ? 'Over by' : 'Remaining'}: ${Math.abs(data.remaining).toFixed(2)}
             </span>
           </div>
         </div>

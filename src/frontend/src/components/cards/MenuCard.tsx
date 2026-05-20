@@ -21,7 +21,9 @@ export function MenuCard({ data }: Props) {
   return (
     <article className="agent-card" aria-label="Menu plan">
       <header className="agent-card-header">
-        <span className="agent-card-icon" aria-hidden="true">🍽️</span>
+        <span className="agent-card-icon" aria-hidden="true">
+          🍽️
+        </span>
         <h3 className="agent-card-title">Menu</h3>
       </header>
 
@@ -33,9 +35,7 @@ export function MenuCard({ data }: Props) {
               {items.map((item) => (
                 <li key={item.name} className="menu-item">
                   <span>{item.name}</span>
-                  <span className="menu-item-cost">
-                    ${item.estimatedCost.toFixed(2)}
-                  </span>
+                  <span className="menu-item-cost">${item.estimatedCost.toFixed(2)}</span>
                 </li>
               ))}
             </ul>

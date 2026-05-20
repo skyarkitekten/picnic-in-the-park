@@ -17,8 +17,7 @@ export function Wizard({ onSubmit, disabled }: Props) {
   tomorrow.setDate(tomorrow.getDate() + 1);
   const minDate = tomorrow.toISOString().split('T')[0];
 
-  const canSubmit =
-    !disabled && eventDate !== '' && partySize > 0 && budget > 0;
+  const canSubmit = !disabled && eventDate !== '' && partySize > 0 && budget > 0;
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -102,11 +101,7 @@ export function Wizard({ onSubmit, disabled }: Props) {
         />
       </div>
 
-      <button
-        type="submit"
-        className="wizard-submit"
-        disabled={!canSubmit}
-      >
+      <button type="submit" className="wizard-submit" disabled={!canSubmit}>
         {disabled ? 'Planning…' : 'Create Plan'}
       </button>
     </form>

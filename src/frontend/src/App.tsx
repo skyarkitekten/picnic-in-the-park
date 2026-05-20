@@ -22,9 +22,7 @@ function App() {
       const plan = await createPlan(userMsg);
       setMessages((prev) => [...prev, { role: 'assistant', plan }]);
     } catch (err) {
-      setError(
-        err instanceof Error ? err.message : 'Failed to create plan',
-      );
+      setError(err instanceof Error ? err.message : 'Failed to create plan');
     } finally {
       setLoading(false);
     }
@@ -34,9 +32,7 @@ function App() {
     <div className="app-container">
       <header className="app-header">
         <h1 className="app-title">Picnic Planner</h1>
-        <p className="app-subtitle">
-          AI-powered picnic planning with multi-agent orchestration
-        </p>
+        <p className="app-subtitle">AI-powered picnic planning with multi-agent orchestration</p>
       </header>
 
       <main className="main-content">
@@ -65,11 +61,7 @@ function App() {
           )}
 
           {loading && messages.length > 0 && (
-            <div
-              className="loading-indicator"
-              role="status"
-              aria-live="polite"
-            >
+            <div className="loading-indicator" role="status" aria-live="polite">
               <div className="loading-spinner" aria-hidden="true" />
               <span>Agents are planning your picnic…</span>
             </div>
@@ -83,8 +75,7 @@ function App() {
                 🧺
               </span>
               <p>
-                Fill in the form and click <strong>Create Plan</strong> to
-                get started.
+                Fill in the form and click <strong>Create Plan</strong> to get started.
               </p>
             </div>
           )}

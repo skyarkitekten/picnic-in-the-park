@@ -4,14 +4,14 @@ Orchestrates specialist agents to produce a complete picnic plan.
 
 ## Specialist agents (currently stubbed)
 
-| Agent | Purpose |
-|-------|---------|
-| Weather | Forecast + risk classification for the event date |
-| Parks | Rank parks / shelters by conditions + weather risk |
-| Menu | Propose menu for party size, budget, dietary notes, weather |
-| Grocery | Build a priced shopping list from the menu |
-| Reservation | Hold a shelter at the top-ranked park |
-| Budget | Aggregate costs and compute remaining budget |
+| Agent       | Purpose                                                     |
+| ----------- | ----------------------------------------------------------- |
+| Weather     | Forecast + risk classification for the event date           |
+| Parks       | Rank parks / shelters by conditions + weather risk          |
+| Menu        | Propose menu for party size, budget, dietary notes, weather |
+| Grocery     | Build a priced shopping list from the menu                  |
+| Reservation | Hold a shelter at the top-ranked park                       |
+| Budget      | Aggregate costs and compute remaining budget                |
 
 ## Local testing
 
@@ -50,5 +50,6 @@ The `agent.yaml` in this directory is read automatically.
 ### Required RBAC roles
 
 The agent's managed identity needs:
+
 - `Cognitive Services OpenAI User` on the Foundry project
 - `Azure AI User` on the Foundry project

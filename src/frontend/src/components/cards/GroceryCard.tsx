@@ -6,7 +6,9 @@ export function GroceryCard({ data }: Props) {
   return (
     <article className="agent-card" aria-label="Shopping list">
       <header className="agent-card-header">
-        <span className="agent-card-icon" aria-hidden="true">🛒</span>
+        <span className="agent-card-icon" aria-hidden="true">
+          🛒
+        </span>
         <h3 className="agent-card-title">Grocery List</h3>
       </header>
 
