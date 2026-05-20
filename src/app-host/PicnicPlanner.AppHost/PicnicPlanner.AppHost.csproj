@@ -18,5 +18,6 @@
     <ProjectReference Include="../../services/PicnicPlanner.ParksService/PicnicPlanner.ParksService.csproj" />
     <ProjectReference Include="../../services/PicnicPlanner.WeatherService/PicnicPlanner.WeatherService.csproj" />
     <ProjectReference Include="../PicnicPlanner.ServiceDefaults/PicnicPlanner.ServiceDefaults.csproj" IsAspireProjectResource="false" />
+    <ProjectReference Include="..\..\agents\weather-agent\weatheragent.csproj" />
   </ItemGroup>
 </Project>

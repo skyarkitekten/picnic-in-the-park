@@ -10,4 +10,7 @@
   <Folder Name="/backend/">
     <Project Path="backend/PicnicPlanner.Planner.Api/PicnicPlanner.Planner.Api.csproj" />
   </Folder>
+  <Folder Name="/agents/">
+    <Project Path="agents/weather-agent/weatheragent.csproj" />
+  </Folder>
 </Solution>
