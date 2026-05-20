@@ -1,6 +1,35 @@
-@PicnicPlanner.ParksService_HostAddress = http://localhost:5201
+@ParksService_HostAddress = http://localhost:5201
 
-GET {{PicnicPlanner.ParksService_HostAddress}}/weatherforecast/
+### List all parks
+GET {{ParksService_HostAddress}}/parks
 Accept: application/json
+
+###
+
+### Get a single park
+GET {{ParksService_HostAddress}}/parks/lake-view
+Accept: application/json
+
+###
+
+### Reserve a shelter
+POST {{ParksService_HostAddress}}/parks/lake-view/shelters/lv-s1/reserve
+Content-Type: application/json
+
+{
+  "date": "2026-05-23",
+  "reservedBy": "Alex"
+}
+
+###
+
+### List active reservations
+GET {{ParksService_HostAddress}}/reservations
+Accept: application/json
+
+###
+
+### Cancel a reservation (replace {id} with real ID from reserve response)
+DELETE {{ParksService_HostAddress}}/reservations/{id}
 
 ###
