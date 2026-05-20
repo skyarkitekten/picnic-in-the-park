@@ -9,13 +9,13 @@ journey doubles as a tour of the demo.
 
 ```mermaid
 flowchart LR
-    T[Trigger:<br/>"Let's picnic Saturday"] --> W[Plan via<br/>Wizard]
-    W --> A[Agents<br/>Collaborate]
-    A --> R[Review &<br/>Confirm]
-    R --> E[Event:<br/>Weather Delta]
-    E --> RP[Selective<br/>Re-Plan]
-    RP --> RR[Diff Review &<br/>Re-Confirm]
-    RR --> D[Day-Of<br/>Plan Executed]
+    T["Trigger:<br/>Let's picnic Saturday"] --> W["Plan via<br/>Wizard"]
+    W --> A["Agents<br/>Collaborate"]
+    A --> R["Review &<br/>Confirm"]
+    R --> E["Event:<br/>Weather Delta"]
+    E --> RP["Selective<br/>Re-Plan"]
+    RP --> RR["Diff Review &<br/>Re-Confirm"]
+    RR --> D["Day-Of<br/>Plan Executed"]
 ```
 
 ## Step-by-step

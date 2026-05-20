@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="../../backend/PicnicPlanner.Planner.Api/PicnicPlanner.Planner.Api.csproj" />
+    <ProjectReference Include="../../agents/coordinator-agent/coordinatoragent.csproj" />
     <ProjectReference Include="../../services/PicnicPlanner.ParksService/PicnicPlanner.ParksService.csproj" />
     <ProjectReference Include="../../services/PicnicPlanner.WeatherService/PicnicPlanner.WeatherService.csproj" />
     <ProjectReference Include="../PicnicPlanner.ServiceDefaults/PicnicPlanner.ServiceDefaults.csproj" IsAspireProjectResource="false" />

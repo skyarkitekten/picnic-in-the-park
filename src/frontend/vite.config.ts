@@ -6,10 +6,16 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      // Proxy API calls to the app service
+      // Proxy API calls to the planner API service
       '/api': {
-        target: process.env.SERVER_HTTPS || process.env.SERVER_HTTP,
+        target: process.env.PLANNER_API_HTTPS || process.env.PLANNER_API_HTTP,
         changeOrigin: true
+      },
+      // Proxy coordinator calls to the coordinator agent
+      '/coordinator': {
+        target: process.env.COORDINATOR_AGENT_HTTP,
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/coordinator/, '')
       }
     }
   }
