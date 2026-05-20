@@ -13,6 +13,12 @@ var api = builder.AddProject<Projects.PicnicPlanner_Planner_Api>("planner-api")
     .WaitFor(weather)
     .WaitFor(parks);
 
+var weatherAgent = builder.AddProject<Projects.weatheragent>("weather-agent")
+    .WithEnvironment("AZURE_AI_PROJECT_ENDPOINT", builder.Configuration["AZURE_AI_PROJECT_ENDPOINT"])
+    .WithEnvironment("AZURE_AI_MODEL_DEPLOYMENT_NAME", builder.Configuration["AZURE_AI_MODEL_DEPLOYMENT_NAME"])
+    .WithReference(weather)
+    .WaitFor(weather);
+
 var web = builder.AddViteApp("planner-web", "../../frontend")
     .WithReference(api)
     .WaitFor(api);
