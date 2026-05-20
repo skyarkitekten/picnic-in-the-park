@@ -5,6 +5,12 @@ var cache = builder.AddRedis("cache");
 var weather = builder.AddProject<Projects.PicnicPlanner_WeatherService>("weather-service");
 var parks = builder.AddProject<Projects.PicnicPlanner_ParksService>("parks-service");
 
+var coordinator = builder.AddProject<Projects.coordinatoragent>("coordinator-agent")
+    .WithReference(weather)
+    .WithReference(parks)
+    .WaitFor(weather)
+    .WaitFor(parks);
+
 var api = builder.AddProject<Projects.PicnicPlanner_Planner_Api>("planner-api")
     .WithReference(cache)
     .WithReference(weather)
@@ -15,6 +21,8 @@ var api = builder.AddProject<Projects.PicnicPlanner_Planner_Api>("planner-api")
 
 var web = builder.AddViteApp("planner-web", "../../frontend")
     .WithReference(api)
-    .WaitFor(api);
+    .WithReference(coordinator)
+    .WaitFor(api)
+    .WaitFor(coordinator);
 
 builder.Build().Run();

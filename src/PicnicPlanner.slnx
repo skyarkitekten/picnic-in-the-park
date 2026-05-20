@@ -3,6 +3,10 @@
     <Project Path="app-host/PicnicPlanner.AppHost/PicnicPlanner.AppHost.csproj" />
     <Project Path="app-host/PicnicPlanner.ServiceDefaults/PicnicPlanner.ServiceDefaults.csproj" />
   </Folder>
+  <Folder Name="/agents/">
+    <Project Path="agents/coordinator-agent/coordinatoragent.csproj" />
+    <Project Path="agents/invitation-agent/invitationagent.csproj" />
+  </Folder>
   <Folder Name="/services/">
     <Project Path="services/PicnicPlanner.ParksService/PicnicPlanner.ParksService.csproj" />
     <Project Path="services/PicnicPlanner.WeatherService/PicnicPlanner.WeatherService.csproj" />
