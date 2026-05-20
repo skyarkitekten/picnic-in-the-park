@@ -1,6 +1,6 @@
-@PicnicPlanner.WeatherService_HostAddress = http://localhost:5293
+@WeatherService_HostAddress = http://localhost:5293
 
-GET {{PicnicPlanner.WeatherService_HostAddress}}/weatherforecast/
+GET {{WeatherService_HostAddress}}/forecast?eventDate=2026-05-23
 Accept: application/json
 
 ###
