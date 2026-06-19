@@ -6,6 +6,7 @@
   <Folder Name="/agents/">
     <Project Path="agents/coordinator-agent/coordinatoragent.csproj" />
     <Project Path="agents/invitation-agent/invitationagent.csproj" />
+    <Project Path="agents/weather-agent/weatheragent.csproj" />
   </Folder>
   <Folder Name="/services/">
     <Project Path="services/PicnicPlanner.ParksService/PicnicPlanner.ParksService.csproj" />
@@ -13,8 +14,5 @@
   </Folder>
   <Folder Name="/backend/">
     <Project Path="backend/PicnicPlanner.Planner.Api/PicnicPlanner.Planner.Api.csproj" />
-  </Folder>
-  <Folder Name="/agents/">
-    <Project Path="agents/weather-agent/weatheragent.csproj" />
   </Folder>
 </Solution>

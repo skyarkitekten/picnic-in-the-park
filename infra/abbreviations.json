@@ -1,0 +1,11 @@
+{
+  "resourceGroup": "rg-",
+  "managedIdentity": "id-",
+  "containerAppsEnvironment": "cae-",
+  "containerRegistry": "cr",
+  "logAnalyticsWorkspace": "log-",
+  "applicationInsights": "appi-",
+  "aiHub": "aihub-",
+  "aiProject": "aiproj-",
+  "redisCache": "redis-"
+}
