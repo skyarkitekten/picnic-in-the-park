@@ -21,14 +21,13 @@ param aiModelSkuName string = 'GlobalStandard'
 @description('Capacity for the AI model deployment (in thousands of tokens per minute)')
 param aiModelCapacity int = 10
 
-var abbrs = loadJsonContent('./abbreviations.json')
 var resourceToken = toLower(uniqueString(subscription().id, environmentName, location))
 var tags = {
   'azd-env-name': environmentName
 }
 
 resource rg 'Microsoft.Resources/resourceGroups@2024-03-01' = {
-  name: '${abbrs.resourceGroup}${environmentName}'
+  name: 'rg-picnic-planner-${environmentName}'
   location: location
   tags: tags
 }
