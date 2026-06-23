@@ -105,6 +105,42 @@ if ([string]::IsNullOrEmpty($ExistingPrCred)) {
     Write-Host "    Federated credential for pull requests already exists"
 }
 
+# Create federated credential for the production environment used by CD
+Write-Host "==> Creating federated credential for production environment"
+$ProductionCredName = "github-production"
+$ProductionSubject = "repo:${Repo}:environment:production"
+$ExistingProductionCred = (az ad app federated-credential list --id $AppId --query "[?name=='$ProductionCredName'].name" -o tsv)
+
+if ([string]::IsNullOrEmpty($ExistingProductionCred)) {
+    $productionCredParams = @{
+        name = $ProductionCredName
+        issuer = "https://token.actions.githubusercontent.com"
+        subject = $ProductionSubject
+        audiences = @("api://AzureADTokenExchange")
+    } | ConvertTo-Json -Compress
+
+    az ad app federated-credential create --id $AppId --parameters $productionCredParams
+    Write-Host "    Created federated credential for production environment"
+} else {
+    $ExistingProductionSubject = (az ad app federated-credential show --id $AppId --federated-credential-id $ProductionCredName --query subject -o tsv)
+    if ($ExistingProductionSubject -ne $ProductionSubject) {
+        Write-Host "    Existing production credential has subject '$ExistingProductionSubject', recreating"
+        az ad app federated-credential delete --id $AppId --federated-credential-id $ProductionCredName
+
+        $productionCredParams = @{
+            name = $ProductionCredName
+            issuer = "https://token.actions.githubusercontent.com"
+            subject = $ProductionSubject
+            audiences = @("api://AzureADTokenExchange")
+        } | ConvertTo-Json -Compress
+
+        az ad app federated-credential create --id $AppId --parameters $productionCredParams
+        Write-Host "    Recreated federated credential for production environment"
+    } else {
+        Write-Host "    Federated credential for production environment already exists"
+    }
+}
+
 # Assign Contributor role
 Write-Host "==> Assigning Contributor role"
 az role assignment create `

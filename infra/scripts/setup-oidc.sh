@@ -89,6 +89,37 @@ else
   echo "    Federated credential for pull requests already exists"
 fi
 
+# Create federated credential for the production environment used by CD
+echo "==> Creating federated credential for production environment"
+PRODUCTION_CRED_NAME="github-production"
+PRODUCTION_SUBJECT="repo:${REPO}:environment:production"
+EXISTING_PRODUCTION_CRED=$(az ad app federated-credential list --id "${APP_ID}" --query "[?name=='${PRODUCTION_CRED_NAME}'].name" -o tsv)
+
+if [ -z "${EXISTING_PRODUCTION_CRED}" ]; then
+  az ad app federated-credential create --id "${APP_ID}" --parameters "{
+    \"name\": \"${PRODUCTION_CRED_NAME}\",
+    \"issuer\": \"https://token.actions.githubusercontent.com\",
+    \"subject\": \"${PRODUCTION_SUBJECT}\",
+    \"audiences\": [\"api://AzureADTokenExchange\"]
+  }"
+  echo "    Created federated credential for production environment"
+else
+  EXISTING_PRODUCTION_SUBJECT=$(az ad app federated-credential show --id "${APP_ID}" --federated-credential-id "${PRODUCTION_CRED_NAME}" --query subject -o tsv)
+  if [ "${EXISTING_PRODUCTION_SUBJECT}" != "${PRODUCTION_SUBJECT}" ]; then
+    echo "    Existing production credential has subject '${EXISTING_PRODUCTION_SUBJECT}', recreating"
+    az ad app federated-credential delete --id "${APP_ID}" --federated-credential-id "${PRODUCTION_CRED_NAME}"
+    az ad app federated-credential create --id "${APP_ID}" --parameters "{
+      \"name\": \"${PRODUCTION_CRED_NAME}\",
+      \"issuer\": \"https://token.actions.githubusercontent.com\",
+      \"subject\": \"${PRODUCTION_SUBJECT}\",
+      \"audiences\": [\"api://AzureADTokenExchange\"]
+    }"
+    echo "    Recreated federated credential for production environment"
+  else
+    echo "    Federated credential for production environment already exists"
+  fi
+fi
+
 # Assign Contributor role on the subscription
 echo "==> Assigning Contributor role"
 az role assignment create \
