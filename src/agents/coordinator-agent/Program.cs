@@ -1,8 +1,5 @@
 // Copyright (c) Microsoft. All rights reserved.
 
-using System.Collections.Concurrent;
-using System.Text.Json;
-
 using Azure.AI.AgentServer.Core;
 using Azure.AI.Projects;
 using Azure.Identity;
@@ -14,6 +11,7 @@ using DotNetEnv;
 
 using Microsoft.Agents.AI;
 using Microsoft.Agents.AI.Foundry.Hosting;
+using Microsoft.Extensions.AI;
 
 Env.TraversePath().Load();
 
@@ -21,9 +19,6 @@ var projectEndpoint = new Uri(Environment.GetEnvironmentVariable("AZURE_AI_PROJE
     ?? throw new InvalidOperationException("AZURE_AI_PROJECT_ENDPOINT environment variable is not set."));
 var deployment = Environment.GetEnvironmentVariable("AZURE_AI_MODEL_DEPLOYMENT_NAME") ?? "gpt-4o";
 var tenantId = Environment.GetEnvironmentVariable("AZURE_TENANT_ID");
-
-// ── In-memory plan store ──
-var plans = new ConcurrentDictionary<string, PicnicPlan>();
 
 var credentialOptions = new DefaultAzureCredentialOptions();
 if (!string.IsNullOrWhiteSpace(tenantId))
@@ -67,7 +62,34 @@ AIAgent agent = new AIProjectClient(projectEndpoint, new DefaultAzureCredential(
             Never skip a tool. Never reorder the tools. Always return valid JSON.
             """,
         name: "coordinator-agent",
-        description: "Orchestrates specialist agents to create a complete picnic plan");
+        description: "Orchestrates specialist agents to create a complete picnic plan",
+        tools:
+        [
+            AIFunctionFactory.Create(
+                (Func<DateOnly, Task<WeatherResult>>)WeatherStub.GetForecastAsync,
+                name: "get_weather",
+                description: "Fetches a picnic forecast for the requested event date."),
+            AIFunctionFactory.Create(
+                (Func<string, string, Task<IReadOnlyList<ParkResult>>>)ParksStub.GetRecommendationsAsync,
+                name: "get_parks",
+                description: "Ranks parks and shelters for the location preference and weather risk."),
+            AIFunctionFactory.Create(
+                (Func<int, decimal, string?, string, Task<MenuResult>>)MenuStub.PlanMenuAsync,
+                name: "plan_menu",
+                description: "Creates a menu for the party size, budget, dietary notes, and weather risk."),
+            AIFunctionFactory.Create(
+                (Func<MenuResult, Task<GroceryResult>>)GroceryStub.GetShoppingListAsync,
+                name: "get_groceries",
+                description: "Builds a grocery list from the planned menu."),
+            AIFunctionFactory.Create(
+                (Func<string, string, DateOnly, Task<ReservationHold>>)ReservationStub.HoldShelterAsync,
+                name: "hold_shelter",
+                description: "Places a hold on a selected park shelter for the event date."),
+            AIFunctionFactory.Create(
+                (Func<decimal, GroceryResult, ReservationHold, Task<BudgetSummary>>)BudgetStub.CalculateAsync,
+                name: "calculate_budget",
+                description: "Calculates food, reservation, miscellaneous, total, and remaining budget.")
+        ]);
 
 var builder = AgentHost.CreateBuilder(args);
 builder.Services.AddFoundryResponses(agent);

@@ -115,4 +115,3 @@ static class SeedData
         ]),
     ];
 }
-
