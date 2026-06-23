@@ -19,84 +19,79 @@ param aiModelCapacity int
 @description('Principal ID to assign Cognitive Services roles to')
 param principalId string
 
+@description('Managed identity principal ID used by deployed apps to call Foundry')
+param appPrincipalId string = ''
+
 var abbrs = loadJsonContent('../../abbreviations.json')
 
-resource aiHub 'Microsoft.MachineLearningServices/workspaces@2024-10-01' = {
-  name: '${abbrs.aiHub}${resourceToken}'
+resource aiServicesAccount 'Microsoft.CognitiveServices/accounts@2025-06-01' = {
+  name: 'ai-${resourceToken}'
   location: location
   tags: tags
-  kind: 'Hub'
-  identity: {
-    type: 'SystemAssigned'
-  }
-  properties: {
-    friendlyName: 'Picnic Planner AI Hub'
-    description: 'AI Hub for Picnic Planner multi-agent system'
-    publicNetworkAccess: 'Enabled'
-  }
-}
-
-resource aiProject 'Microsoft.MachineLearningServices/workspaces@2024-10-01' = {
-  name: '${abbrs.aiProject}${resourceToken}'
-  location: location
-  tags: tags
-  kind: 'Project'
-  identity: {
-    type: 'SystemAssigned'
-  }
-  properties: {
-    friendlyName: 'Picnic Planner'
-    description: 'AI Project for Picnic Planner agents'
-    hubResourceId: aiHub.id
-  }
-}
-
-resource aiServicesAccount 'Microsoft.CognitiveServices/accounts@2024-10-01' = {
-  name: 'aoai-${resourceToken}'
-  location: location
-  tags: tags
-  kind: 'OpenAI'
+  kind: 'AIServices'
   sku: {
     name: 'S0'
   }
+  identity: {
+    type: 'SystemAssigned'
+  }
   properties: {
-    customSubDomainName: 'aoai-${resourceToken}'
+    allowProjectManagement: true
+    customSubDomainName: 'ai-${resourceToken}'
+    disableLocalAuth: true
     publicNetworkAccess: 'Enabled'
-  }
-}
-
-resource modelDeployment 'Microsoft.CognitiveServices/accounts/deployments@2024-10-01' = {
-  parent: aiServicesAccount
-  name: aiModelName
-  sku: {
-    name: aiModelSkuName
-    capacity: aiModelCapacity
-  }
-  properties: {
-    model: {
-      format: 'OpenAI'
-      name: aiModelName
-      version: '2024-11-20'
+    networkAcls: {
+      defaultAction: 'Allow'
+      virtualNetworkRules: []
+      ipRules: []
     }
   }
-}
 
-// Connection from AI Hub to AI Services
-resource aiHubConnection 'Microsoft.MachineLearningServices/workspaces/connections@2024-10-01' = {
-  parent: aiHub
-  name: 'aoai-connection'
-  properties: {
-    category: 'AzureOpenAI'
-    authType: 'AAD'
-    target: aiServicesAccount.properties.endpoint
-    metadata: {
-      ApiType: 'Azure'
-      ResourceId: aiServicesAccount.id
+  resource modelDeployment 'deployments' = {
+    name: aiModelName
+    sku: {
+      name: aiModelSkuName
+      capacity: aiModelCapacity
     }
+    properties: {
+      model: {
+        format: 'OpenAI'
+        name: aiModelName
+        version: '2024-11-20'
+      }
+    }
+  }
+
+  resource project 'projects' = {
+    name: '${abbrs.aiProject}${resourceToken}'
+    location: location
+    identity: {
+      type: 'SystemAssigned'
+    }
+    properties: {
+      description: 'AI Project for Picnic Planner agents'
+      displayName: 'Picnic Planner'
+    }
+    dependsOn: [
+      modelDeployment
+    ]
   }
 }
 
-// Role assignment: Cognitive Services OpenAI User for the deploying principal
+// Azure AI User for the deploying principal, scoped to the Foundry project.
+resource azureAIUser 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  scope: aiServicesAccount::project
+  name: guid(aiServicesAccount::project.id, principalId, 'Azure AI User')
+  properties: {
+    roleDefinitionId: subscriptionResourceId(
+      'Microsoft.Authorization/roleDefinitions',
+      '53ca6127-db72-4b80-b1b0-d745d6d5456d' // Azure AI User
+    )
+    principalId: principalId
+  }
+}
+
+// Cognitive Services OpenAI User for direct model invocation permissions.
 resource cognitiveServicesUser 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   scope: aiServicesAccount
   name: guid(aiServicesAccount.id, principalId, 'Cognitive Services OpenAI User')
@@ -106,10 +101,35 @@ resource cognitiveServicesUser 'Microsoft.Authorization/roleAssignments@2022-04-
       '5e0bd9bd-7b93-4f28-af87-19fc36ad61bd' // Cognitive Services OpenAI User
     )
     principalId: principalId
-    principalType: 'ServicePrincipal'
   }
 }
 
-output projectEndpoint string = aiProject.properties.discoveryUrl
-output modelDeploymentName string = modelDeployment.name
+// Azure AI User for deployed app managed identity, scoped to the Foundry project.
+resource appAzureAIUser 'Microsoft.Authorization/roleAssignments@2022-04-01' = if (!empty(appPrincipalId)) {
+  scope: aiServicesAccount::project
+  name: guid(aiServicesAccount::project.id, appPrincipalId, 'Azure AI User')
+  properties: {
+    roleDefinitionId: subscriptionResourceId(
+      'Microsoft.Authorization/roleDefinitions',
+      '53ca6127-db72-4b80-b1b0-d745d6d5456d' // Azure AI User
+    )
+    principalId: appPrincipalId
+  }
+}
+
+// Cognitive Services OpenAI User for deployed app managed identity.
+resource appCognitiveServicesUser 'Microsoft.Authorization/roleAssignments@2022-04-01' = if (!empty(appPrincipalId)) {
+  scope: aiServicesAccount
+  name: guid(aiServicesAccount.id, appPrincipalId, 'Cognitive Services OpenAI User')
+  properties: {
+    roleDefinitionId: subscriptionResourceId(
+      'Microsoft.Authorization/roleDefinitions',
+      '5e0bd9bd-7b93-4f28-af87-19fc36ad61bd' // Cognitive Services OpenAI User
+    )
+    principalId: appPrincipalId
+  }
+}
+
+output projectEndpoint string = aiServicesAccount::project.properties.endpoints['AI Foundry API']
+output modelDeploymentName string = aiServicesAccount::modelDeployment.name
 output aiServicesEndpoint string = aiServicesAccount.properties.endpoint
