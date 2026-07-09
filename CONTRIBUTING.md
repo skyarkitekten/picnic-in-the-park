@@ -54,11 +54,14 @@ Run the setup script to create the federated identity between GitHub Actions and
 The script:
 
 1. Creates an Entra ID app registration (`picnic-in-the-park-deploy`)
-2. Creates federated credentials for the `main` branch and pull requests
+2. Creates federated credentials for the `main` branch, pull requests, and the `production` GitHub Environment used by CD
 3. Assigns `Contributor` and `User Access Administrator` roles on the subscription
 4. Sets the required GitHub repository variables via `gh`
 
 The script is **idempotent** — safe to run multiple times.
+
+> [!NOTE]
+> The CD workflow deploys from the `production` GitHub Environment, so the Entra app registration must include a federated credential with subject `repo:<github-org/repo>:environment:production`. If Azure login fails with `AADSTS700213` for that subject, rerun the OIDC setup script after authenticating with `az login`.
 
 ### Required GitHub Repository Variables
 
