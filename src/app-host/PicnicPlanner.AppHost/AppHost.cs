@@ -1,12 +1,17 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
-var cachePassword = builder.AddParameter("cache-password", secret: true);
-
 // The cache is a password-protected, internal-only dependency: it has no HTTP
 // endpoint and must never be given external ingress when deployed to Azure
 // Container Apps. Do not add `.WithExternalHttpEndpoints()` (or any other
 // public-facing endpoint) to this resource.
-var cache = builder.AddRedis("cache", password: cachePassword);
+//
+// No explicit password parameter is passed here: AddRedis auto-generates a
+// secured "cache-password" parameter with a generated default value. Supplying
+// our own AddParameter("cache-password", secret: true) with no default left
+// azd unable to resolve the securedParameter("cache_password") during
+// `azd deploy`, since there was no value and no prompt is allowed in CI
+// (--no-prompt), causing the CD pipeline to fail.
+var cache = builder.AddRedis("cache");
 
 var weather = builder.AddProject<Projects.PicnicPlanner_WeatherService>("weather-service");
 var parks = builder.AddProject<Projects.PicnicPlanner_ParksService>("parks-service");
