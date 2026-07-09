@@ -1,6 +1,11 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
 var cachePassword = builder.AddParameter("cache-password", secret: true);
+
+// The cache is a password-protected, internal-only dependency: it has no HTTP
+// endpoint and must never be given external ingress when deployed to Azure
+// Container Apps. Do not add `.WithExternalHttpEndpoints()` (or any other
+// public-facing endpoint) to this resource.
 var cache = builder.AddRedis("cache", password: cachePassword);
 
 var weather = builder.AddProject<Projects.PicnicPlanner_WeatherService>("weather-service");
