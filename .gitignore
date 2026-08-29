@@ -486,3 +486,7 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# impeccable local session state (not project source)
+.impeccable/live/
+.impeccable/hook.cache.json
