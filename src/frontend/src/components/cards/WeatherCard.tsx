@@ -1,17 +1,17 @@
 import type { WeatherResult } from '../../types';
 
-const riskColors: Record<string, string> = {
-  Ideal: '#22c55e',
-  Acceptable: '#eab308',
-  'Risk:Rain': '#3b82f6',
-  'Risk:Heat': '#ef4444',
-  Unsafe: '#dc2626',
+const riskClasses: Record<string, string> = {
+  Ideal: 'risk-ideal',
+  Acceptable: 'risk-acceptable',
+  'Risk:Rain': 'risk-rain',
+  'Risk:Heat': 'risk-heat',
+  Unsafe: 'risk-unsafe',
 };
 
 type Props = { data: WeatherResult };
 
 export function WeatherCard({ data }: Props) {
-  const color = riskColors[data.riskClassification] ?? '#94a3b8';
+  const riskClass = riskClasses[data.riskClassification] ?? '';
 
   return (
     <article className="agent-card" aria-label="Weather forecast">
@@ -37,9 +37,7 @@ export function WeatherCard({ data }: Props) {
         </div>
         <div className="weather-detail-row">
           <span className="weather-detail-label">Risk</span>
-          <span className="risk-badge" style={{ backgroundColor: color }}>
-            {data.riskClassification}
-          </span>
+          <span className={`risk-badge ${riskClass}`}>{data.riskClassification}</span>
         </div>
       </div>
     </article>

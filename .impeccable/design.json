@@ -1,0 +1,561 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-29T00:40:35Z",
+  "title": "Design System: Picnic In The Park",
+  "extensions": {
+    "colorMeta": {
+      "field": {
+        "role": "neutral",
+        "displayName": "Field",
+        "canonical": "#fdf4e7",
+        "lightScheme": "#fdf4e7",
+        "purpose": "The page ground. Warm paper, never white.",
+        "tonalRamp": [
+          "#261803",
+          "#553507",
+          "#8d580c",
+          "#ed9e2b",
+          "#f3be72",
+          "#f8daaf",
+          "#fdf2e3",
+          "#fdf4e7"
+        ]
+      },
+      "field-deep": {
+        "role": "neutral",
+        "displayName": "Field Deep",
+        "canonical": "#f7e9d6",
+        "lightScheme": "#f7e9d6",
+        "purpose": "Recessed field: the budget track and sunken strips.",
+        "tonalRamp": [
+          "#221607",
+          "#4d330f",
+          "#805419",
+          "#da983f",
+          "#e6ba7f",
+          "#f1d8b6",
+          "#f7e9d6",
+          "#faf1e5"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#2b1d14",
+        "lightScheme": "#2b1d14",
+        "purpose": "Primary text. Warm near-black, never neutral.",
+        "tonalRamp": [
+          "#1c130d",
+          "#2b1d14",
+          "#3f2a1d",
+          "#684631",
+          "#b68362",
+          "#ceac97",
+          "#e3d0c4",
+          "#f5eeea"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Ink Two",
+        "canonical": "#5c4634",
+        "lightScheme": "#5c4634",
+        "purpose": "Supporting text and card titles.",
+        "tonalRamp": [
+          "#1a140f",
+          "#3b2d21",
+          "#5c4634",
+          "#624a37",
+          "#ac896c",
+          "#c8b09d",
+          "#e0d2c8",
+          "#f4efeb"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Ink Three",
+        "canonical": "#77604a",
+        "lightScheme": "#77604a",
+        "purpose": "Micro-labels, units, table headers.",
+        "tonalRamp": [
+          "#191410",
+          "#392e23",
+          "#5e4c3b",
+          "#77604a",
+          "#a78c71",
+          "#c4b2a1",
+          "#ded3ca",
+          "#f3f0ec"
+        ]
+      },
+      "ink-on-dark": {
+        "role": "neutral",
+        "displayName": "Ink on Dark",
+        "canonical": "#fffaf1",
+        "lightScheme": "#fffaf1",
+        "purpose": "Text over the photograph, on the scrim.",
+        "tonalRamp": [
+          "#291a00",
+          "#5c3b00",
+          "#996200",
+          "#ffad1a",
+          "#ffc866",
+          "#ffe0a8",
+          "#fff4e0",
+          "#fffaf1"
+        ]
+      },
+      "accent-terracotta": {
+        "role": "accent",
+        "displayName": "Terracotta",
+        "canonical": "#b03a0b",
+        "lightScheme": "#b03a0b",
+        "purpose": "The only saturated chrome: primary action, visitor voice, focus.",
+        "tonalRamp": [
+          "#260d02",
+          "#561c05",
+          "#902f09",
+          "#b03a0b",
+          "#f26127",
+          "#f6956f",
+          "#fac3ad",
+          "#fdeae2"
+        ]
+      },
+      "accent-deep": {
+        "role": "accent",
+        "displayName": "Terracotta Deep",
+        "canonical": "#8f2f09",
+        "lightScheme": "#8f2f09",
+        "purpose": "Hover and press state for terracotta.",
+        "tonalRamp": [
+          "#260d02",
+          "#561c05",
+          "#8f2f09",
+          "#902f09",
+          "#f16027",
+          "#f6956f",
+          "#fac3ad",
+          "#fdeae2"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "canonical": "#e0cfb4",
+        "lightScheme": "#e0cfb4",
+        "purpose": "Decorative separation only: card edges, row dividers.",
+        "tonalRamp": [
+          "#1d160c",
+          "#41321b",
+          "#6c542d",
+          "#bc975d",
+          "#d2ba93",
+          "#e0cfb4",
+          "#e6d8c2",
+          "#f6f1e9"
+        ]
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Line Strong",
+        "canonical": "#998063",
+        "lightScheme": "#998063",
+        "purpose": "Control boundaries. Clears 3:1 against paper.",
+        "tonalRamp": [
+          "#191510",
+          "#382f24",
+          "#5d4e3c",
+          "#998063",
+          "#a58e74",
+          "#c3b4a2",
+          "#ddd4ca",
+          "#f3f0ec"
+        ]
+      },
+      "status-ideal-bg": {
+        "role": "status",
+        "displayName": "Ideal Chip",
+        "canonical": "#bbf7d0",
+        "lightScheme": "#bbf7d0",
+        "purpose": "Weather risk: ideal. Pairs with #14532d at 7.5:1.",
+        "tonalRamp": [
+          "#042510",
+          "#0a5223",
+          "#10893a",
+          "#32e771",
+          "#76efa0",
+          "#b1f6c9",
+          "#bbf7d0",
+          "#e4fcec"
+        ]
+      },
+      "status-caution-bg": {
+        "role": "status",
+        "displayName": "Caution Chip",
+        "canonical": "#fde68a",
+        "lightScheme": "#fde68a",
+        "purpose": "Weather risk: acceptable. Pairs with #713f12 at 7.0:1.",
+        "tonalRamp": [
+          "#282001",
+          "#5a4902",
+          "#967903",
+          "#fbcf1d",
+          "#fcdf69",
+          "#fde68a",
+          "#feedaa",
+          "#fef9e1"
+        ]
+      },
+      "status-rain-bg": {
+        "role": "status",
+        "displayName": "Rain Chip",
+        "canonical": "#bfdbfe",
+        "lightScheme": "#bfdbfe",
+        "purpose": "Weather risk: rain. Pairs with #1e3a8a at 7.3:1.",
+        "tonalRamp": [
+          "#011228",
+          "#01295a",
+          "#024497",
+          "#1d80fb",
+          "#68aafd",
+          "#aacffe",
+          "#bfdbfe",
+          "#e1eeff"
+        ]
+      },
+      "status-heat-bg": {
+        "role": "status",
+        "displayName": "Heat Chip",
+        "canonical": "#fecaca",
+        "lightScheme": "#fecaca",
+        "purpose": "Weather risk: heat. Pairs with #7f1d1d at 6.9:1.",
+        "tonalRamp": [
+          "#280101",
+          "#5a0202",
+          "#960303",
+          "#fb1e1e",
+          "#fc6969",
+          "#fdaaaa",
+          "#fecaca",
+          "#fee1e1"
+        ]
+      },
+      "status-unsafe-bg": {
+        "role": "status",
+        "displayName": "Unsafe Chip",
+        "canonical": "#991b1b",
+        "lightScheme": "#991b1b",
+        "purpose": "Weather risk: unsafe. The one inverted chip; white ink at 8.6:1.",
+        "tonalRamp": [
+          "#230606",
+          "#4e0e0e",
+          "#821717",
+          "#991b1b",
+          "#dd3c3c",
+          "#e87d7d",
+          "#f2b5b5",
+          "#fae5e5"
+        ]
+      },
+      "status-unknown-bg": {
+        "role": "status",
+        "displayName": "Unknown Chip",
+        "canonical": "#e7e0d5",
+        "lightScheme": "#e7e0d5",
+        "purpose": "Unrecognised classification. Pairs with #3f3a33 at 8.2:1.",
+        "tonalRamp": [
+          "#1a160f",
+          "#3a3121",
+          "#615138",
+          "#ac936d",
+          "#c7b79e",
+          "#dfd6c8",
+          "#e7e0d5",
+          "#f4f1ec"
+        ]
+      },
+      "good-text": {
+        "role": "status",
+        "displayName": "Under Budget",
+        "canonical": "#15803d",
+        "lightScheme": "#15803d",
+        "purpose": "Budget remaining text and bar fill.",
+        "tonalRamp": [
+          "#062311",
+          "#0d4f26",
+          "#15803d",
+          "#16833f",
+          "#3adf77",
+          "#7ce9a5",
+          "#b5f3cc",
+          "#e5fbed"
+        ]
+      },
+      "bad-text": {
+        "role": "status",
+        "displayName": "Over Budget",
+        "canonical": "#b91c1c",
+        "lightScheme": "#b91c1c",
+        "purpose": "Budget overrun text and bar fill.",
+        "tonalRamp": [
+          "#230505",
+          "#500c0c",
+          "#851414",
+          "#b91c1c",
+          "#e13838",
+          "#eb7a7a",
+          "#f4b4b4",
+          "#fbe4e4"
+        ]
+      },
+      "focus": {
+        "role": "accent",
+        "displayName": "Focus",
+        "canonical": "#7a2b06",
+        "lightScheme": "#7a2b06",
+        "purpose": "Focus outline on the primary action.",
+        "tonalRamp": [
+          "#270e02",
+          "#571f04",
+          "#7a2b06",
+          "#923307",
+          "#f46724",
+          "#f8996d",
+          "#fbc5ac",
+          "#feebe2"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "role": "Hero title",
+        "usage": "The product name over the photograph. The only place the product speaks in its own voice.",
+        "family": "ui-serif, Georgia, 'Iowan Old Style', 'Palatino Linotype', Palatino, serif"
+      },
+      "headline": {
+        "role": "Panel heading",
+        "usage": "The wizard heading. Serif, because a human wrote it.",
+        "family": "ui-serif, Georgia, 'Iowan Old Style', 'Palatino Linotype', Palatino, serif"
+      },
+      "title": {
+        "role": "Card title / micro-label",
+        "usage": "Uppercase 0.08em connective tissue across cards, tables, and menu categories.",
+        "family": "ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
+      },
+      "body": {
+        "role": "Agent output",
+        "usage": "Everything an agent produced. Sans, 1.5 line height.",
+        "family": "ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
+      },
+      "label": {
+        "role": "Field label / chip",
+        "usage": "Form labels and status chips.",
+        "family": "ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
+      }
+    },
+    "shadows": [
+      {
+        "name": "rest",
+        "value": "0 1px 2px rgba(74, 44, 18, 0.06), 0 8px 24px -12px rgba(74, 44, 18, 0.28)",
+        "purpose": "Agent cards and the primary button at rest. Warm, offset, two-layer."
+      },
+      {
+        "name": "lift",
+        "value": "0 2px 4px rgba(74, 44, 18, 0.08), 0 18px 40px -16px rgba(74, 44, 18, 0.38)",
+        "purpose": "Hover state for cards and the primary button."
+      },
+      {
+        "name": "hero",
+        "value": "0 4px 8px rgba(56, 30, 10, 0.1), 0 40px 80px -32px rgba(56, 30, 10, 0.45)",
+        "purpose": "The wizard panel, which overlaps the photograph and needs the strongest separation."
+      },
+      {
+        "name": "focus-ring",
+        "value": "0 0 0 3px rgba(176, 58, 11, 0.28)",
+        "purpose": "Input focus. Paired with a terracotta border so the indicator survives if the ring is missed."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state",
+        "value": "0.18s ease",
+        "purpose": "Hover, border, and background changes on controls."
+      },
+      {
+        "name": "lift",
+        "value": "0.22s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Card and button elevation changes."
+      },
+      {
+        "name": "entrance",
+        "value": "0.9s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The single authored entrance: title, subtitle, wizard, chat, staggered 0.1s to 0.44s."
+      },
+      {
+        "name": "hero-settle",
+        "value": "1.6s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The photograph settles from scale(1.14) to scale(1.06) once on load. The only moment the image moves."
+      },
+      {
+        "name": "budget",
+        "value": "0.6s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Budget bar fill, animated on transform: scaleX so it never forces layout."
+      },
+      {
+        "name": "spin",
+        "value": "0.8s linear infinite",
+        "purpose": "Loading spinner."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "rail-narrow",
+        "value": "1080px",
+        "purpose": "Wizard rail narrows from 360px to 320px and the column gap tightens."
+      },
+      {
+        "name": "stack",
+        "value": "860px",
+        "purpose": "Grid collapses to one column, rail unsticks, hero shortens, card grid goes 1fr."
+      },
+      {
+        "name": "container-max",
+        "value": "1400px",
+        "purpose": "Shared measure for the hero text block and the content grid, so the title aligns with the panels below it."
+      },
+      {
+        "name": "hero-height",
+        "value": "clamp(360px, 58vh, 620px)",
+        "purpose": "Hero band height; drops to clamp(320px, 46vh, 460px) below the stack breakpoint."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The system's only button. Solid terracotta, 48px minimum target, white label at 6.1:1.",
+      "html": "<button class=\"ds-btn-primary\">Create Plan</button>",
+      "css": ".ds-btn-primary { min-height: 48px; background: #b03a0b; color: #fff; border: none; border-radius: 0.7rem; padding: 0.8rem 1.5rem; font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 0.01em; cursor: pointer; box-shadow: 0 1px 2px rgba(74,44,18,.06), 0 8px 24px -12px rgba(74,44,18,.28); transition: background-color .18s ease, transform .18s cubic-bezier(.16,1,.3,1), box-shadow .18s ease; } .ds-btn-primary:hover:not(:disabled) { background: #8f2f09; transform: translateY(-1px); box-shadow: 0 2px 4px rgba(74,44,18,.08), 0 18px 40px -16px rgba(74,44,18,.38); } .ds-btn-primary:disabled { background: #d9c6ad; color: #6b5947; cursor: not-allowed; box-shadow: none; } .ds-btn-primary:focus-visible { outline: 3px solid #7a2b06; outline-offset: 3px; }"
+    },
+    {
+      "name": "Input Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "44px minimum target. Focus draws a terracotta border plus a visible ring, on :focus-visible only.",
+      "html": "<label class=\"ds-label\" for=\"ds-i\">Party size</label><input class=\"ds-input\" id=\"ds-i\" type=\"number\" value=\"6\">",
+      "css": ".ds-label { display: block; margin-bottom: .4rem; font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #77604a; } .ds-input { min-height: 44px; width: 100%; background: #fffdfa; border: 1px solid #998063; border-radius: .7rem; padding: .6rem .8rem; font-family: inherit; font-size: .95rem; color: #2b1d14; transition: border-color .18s ease, box-shadow .18s ease; } .ds-input:focus-visible { outline: none; border-color: #b03a0b; box-shadow: 0 0 0 3px rgba(176,58,11,.28); }"
+    },
+    {
+      "name": "Hero Header",
+      "kind": "section",
+      "refersTo": null,
+      "description": "The photograph, the scrim ramp, and the serif title. The scrim guarantees 5:1 for the title over the brightest pixel the image can produce.",
+      "html": "<header class=\"ds-hero\"><h1 class=\"ds-hero-title\">Picnic in the Park</h1><p class=\"ds-hero-sub\">Five agents work out the weather, the park, the menu, the budget and the invitations.</p></header>",
+      "css": ".ds-hero { position: relative; isolation: isolate; min-height: clamp(360px,58vh,620px); display: flex; flex-direction: column; justify-content: flex-end; padding: 3rem 2rem 4rem; overflow: hidden; color: #fffaf1; } .ds-hero::before { content: ''; position: absolute; inset: 0; z-index: -2; background: url('/hero.svg') center 42%/cover; transform: scale(1.06); } .ds-hero::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(48,24,9,.62) 0%, rgba(48,24,9,.5) 34%, rgba(60,32,12,.34) 58%, rgba(253,244,231,.5) 84%, #fdf4e7 100%); } .ds-hero-title { font-family: ui-serif, Georgia, 'Iowan Old Style', 'Palatino Linotype', Palatino, serif; font-size: clamp(2.75rem,7vw,5rem); line-height: 1.02; font-weight: 600; letter-spacing: -.03em; margin: 0 0 .6rem; max-width: 14ch; text-wrap: balance; text-shadow: 0 2px 24px rgba(40,20,6,.45); } .ds-hero-sub { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 1.15rem; line-height: 1.5; color: #fdeacd; margin: 0; max-width: 46ch; text-shadow: 0 1px 12px rgba(40,20,6,.5); }"
+    },
+    {
+      "name": "Wizard Panel",
+      "kind": "card",
+      "refersTo": "wizard-panel",
+      "description": "The most elevated surface. Frosted paper overlapping the photograph.",
+      "html": "<section class=\"ds-panel\"><h2 class=\"ds-panel-title\">Plan your picnic</h2></section>",
+      "css": ".ds-panel { background: rgba(255,253,248,.94); border: 1px solid #e0cfb4; border-radius: 1.25rem; padding: 1.75rem; backdrop-filter: blur(20px) saturate(1.15); box-shadow: 0 4px 8px rgba(56,30,10,.1), 0 40px 80px -32px rgba(56,30,10,.45); } .ds-panel-title { font-family: ui-serif, Georgia, 'Iowan Old Style', 'Palatino Linotype', Palatino, serif; font-size: 1.5rem; font-weight: 600; letter-spacing: -.02em; margin: 0; color: #2b1d14; }"
+    },
+    {
+      "name": "Agent Card",
+      "kind": "card",
+      "refersTo": "agent-card",
+      "description": "One specialist agent's result. Recessed header strip, hidden emoji glyph, uppercase title.",
+      "html": "<article class=\"ds-card\"><header class=\"ds-card-head\"><span aria-hidden=\"true\">🌤️</span><h3 class=\"ds-card-title\">Weather</h3></header><div class=\"ds-card-body\"><div class=\"ds-row\"><span class=\"ds-row-label\">Temperature</span><span>74°F</span></div></div></article>",
+      "css": ".ds-card { background: #fffdf9; border: 1px solid #e0cfb4; border-radius: 1rem; overflow: hidden; box-shadow: 0 1px 2px rgba(74,44,18,.06), 0 8px 24px -12px rgba(74,44,18,.28); transition: transform .22s cubic-bezier(.16,1,.3,1), box-shadow .22s ease; font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; color: #2b1d14; } .ds-card:hover { transform: translateY(-3px); box-shadow: 0 2px 4px rgba(74,44,18,.08), 0 18px 40px -16px rgba(74,44,18,.38); } .ds-card-head { display: flex; align-items: center; gap: .55rem; padding: .85rem 1.1rem; background: rgba(250,240,226,.72); border-bottom: 1px solid #e0cfb4; } .ds-card-title { margin: 0; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #5c4634; } .ds-card-body { padding: .9rem 1.1rem 1rem; font-size: .875rem; } .ds-row { display: flex; justify-content: space-between; gap: 1rem; } .ds-row-label { color: #77604a; font-weight: 500; }"
+    },
+    {
+      "name": "Status Chip",
+      "kind": "badge",
+      "refersTo": "risk-badge",
+      "description": "Weather risk and reservation status. Dark ink on a light chip; every pair clears 6.9:1. Never white text on a saturated fill.",
+      "html": "<span class=\"ds-chip ds-chip-ideal\">Ideal</span> <span class=\"ds-chip ds-chip-caution\">Acceptable</span> <span class=\"ds-chip ds-chip-rain\">Risk:Rain</span> <span class=\"ds-chip ds-chip-heat\">Risk:Heat</span> <span class=\"ds-chip ds-chip-unsafe\">Unsafe</span>",
+      "css": ".ds-chip { display: inline-block; padding: .2rem .6rem; border-radius: 999px; font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: .75rem; font-weight: 700; background: #e7e0d5; color: #3f3a33; } .ds-chip-ideal { background: #bbf7d0; color: #14532d; } .ds-chip-caution { background: #fde68a; color: #713f12; } .ds-chip-rain { background: #bfdbfe; color: #1e3a8a; } .ds-chip-heat { background: #fecaca; color: #7f1d1d; } .ds-chip-unsafe { background: #991b1b; color: #fff; }"
+    },
+    {
+      "name": "Budget Meter",
+      "kind": "progress",
+      "refersTo": null,
+      "description": "Animates on transform: scaleX rather than width, so the fill never forces layout.",
+      "html": "<div class=\"ds-meter\" aria-hidden=\"true\"><div class=\"ds-meter-fill\" style=\"transform: scaleX(.72)\"></div></div><div class=\"ds-meter-totals\"><span>Spent: $108.40 / $150.00</span><span class=\"ds-meter-good\">Remaining: $41.60</span></div>",
+      "css": ".ds-meter { height: 10px; background: #f7e9d6; border: 1px solid #e0cfb4; border-radius: 999px; overflow: hidden; margin-bottom: .6rem; } .ds-meter-fill { height: 100%; width: 100%; border-radius: 999px; background: #15803d; transform-origin: left center; transition: transform .6s cubic-bezier(.16,1,.3,1); } .ds-meter-totals { display: flex; justify-content: space-between; gap: .35rem; font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: .875rem; color: #2b1d14; font-variant-numeric: tabular-nums; } .ds-meter-good { color: #15803d; font-weight: 700; }"
+    },
+    {
+      "name": "Chat Bubbles",
+      "kind": "message",
+      "refersTo": "chat-bubble-user",
+      "description": "The visitor's message is solid terracotta at 70% width; the agents' reply is full-width frosted paper because it holds the card grid.",
+      "html": "<div class=\"ds-chat\"><div class=\"ds-msg-user\"><div class=\"ds-bubble ds-bubble-user\"><p>Plan a picnic on 2026-05-16 for 6 people, $150 budget, near the lake</p></div></div><div class=\"ds-msg-agent\"><div class=\"ds-bubble ds-bubble-agent\"><p class=\"ds-plan-status\">Plan ready</p></div></div></div>",
+      "css": ".ds-chat { display: flex; flex-direction: column; gap: 1.25rem; font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; } .ds-msg-user { display: flex; justify-content: flex-end; } .ds-msg-agent { display: flex; justify-content: flex-start; } .ds-bubble { border-radius: 1.25rem; padding: 1.1rem 1.35rem; box-shadow: 0 1px 2px rgba(74,44,18,.06), 0 8px 24px -12px rgba(74,44,18,.28); } .ds-bubble p { margin: 0; line-height: 1.55; } .ds-bubble-user { background: #b03a0b; color: #fff; border-bottom-right-radius: .35rem; max-width: 70%; } .ds-bubble-agent { background: rgba(255,251,243,.9); border: 1px solid #e0cfb4; backdrop-filter: blur(20px) saturate(1.15); border-bottom-left-radius: .35rem; width: 100%; color: #2b1d14; } .ds-plan-status { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #77604a; }"
+    },
+    {
+      "name": "Data Table",
+      "kind": "table",
+      "refersTo": null,
+      "description": "Dense agent output. Header rule uses line-strong; row dividers use the decorative line and the last row drops its border.",
+      "html": "<table class=\"ds-table\" aria-label=\"Ranked parks\"><thead><tr><th>Park</th><th>Score</th></tr></thead><tbody><tr><td>Riverside Meadow<span class=\"ds-sub\">Portland</span></td><td>9.2</td></tr><tr><td>Cedar Point<span class=\"ds-sub\">Portland</span></td><td>8.7</td></tr></tbody></table>",
+      "css": ".ds-table { width: 100%; border-collapse: collapse; font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: .85rem; color: #2b1d14; } .ds-table th { text-align: left; font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #77604a; padding: .4rem .5rem; border-bottom: 1px solid #998063; } .ds-table td { padding: .45rem .5rem; border-bottom: 1px solid #e0cfb4; } .ds-table tr:last-child td { border-bottom: none; } .ds-sub { display: block; font-size: .75rem; color: #77604a; }"
+    },
+    {
+      "name": "Empty State",
+      "kind": "state",
+      "refersTo": null,
+      "description": "Frosted paper with a dashed line-strong frame, so the waiting area reads as a place something will arrive rather than as a card.",
+      "html": "<div class=\"ds-empty\"><span aria-hidden=\"true\" class=\"ds-empty-icon\">🧺</span><p>Fill in the form and choose <strong>Create Plan</strong> to get started.</p></div>",
+      "css": ".ds-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .85rem; padding: 4.5rem 2rem; background: rgba(255,251,243,.9); border: 1px dashed #998063; border-radius: 1.25rem; backdrop-filter: blur(20px) saturate(1.15); font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; color: #5c4634; text-align: center; } .ds-empty-icon { font-size: 3rem; } .ds-empty p { margin: 0; max-width: 34ch; line-height: 1.6; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Golden Hour",
+    "overview": "A planning tool for something pleasant, set at late afternoon. The product opens on a large photograph of a sunlit meadow and every working surface is warm frosted paper floating over it. The palette is warm end to end: field #fdf4e7, ink in warm browns rather than neutral grey, and a single saturated accent in terracotta #b03a0b. The mode is Operate. Past the hero the job is to fill in five fields and read what five agents came back with, so personality lives in the header, the paper, and the terracotta, while the working area stays quiet and scannable. The use scene decides the light: this surface is projected in a lit room during a demo and also read closely on a laptop, and both favour a bright, high-contrast field. There is no dark scheme, because the world is built on one specific photograph and one specific quality of light; a mechanical inversion would produce neither. The backdrop is wired through a single --hero-image custom property, so replacing the bundled hero.svg with a photograph changes the whole world's light in one line.",
+    "keyCharacteristics": [
+      "A single photograph, only in the header, with the content grid pulled up -7rem to overlap it",
+      "A five-stop scrim ramp that guarantees 5:1 for the title over the brightest pixel the image can produce, then dissolves the photo into the page",
+      "Frosted paper panels at 0.90-0.94 alpha with backdrop-filter: blur(20px) saturate(1.15)",
+      "Serif for the human voice, sans for everything an agent produced",
+      "Terracotta reserved for the primary action, the visitor's own bubble, and focus",
+      "Status as dark ink on light chips, every pair above 6.9:1",
+      "Warm, offset, two-layer shadows carrying elevation instead of borders"
+    ],
+    "rules": [
+      "Accent Scarcity: terracotta appears on the primary action, the visitor's voice, and focus. Nowhere else.",
+      "Ink on Light Chips: status never uses white text on a saturated fill; it is dark ink on a light chip of the same hue.",
+      "One Photograph: a single image, in the header only. Everything else is paper.",
+      "Scrim Before Type: no text sits on the photograph outside the scrim ramp.",
+      "Panels Overlap the Horizon: the content grid cuts into the hero, which is what makes the photograph read as depth rather than as a banner.",
+      "Serif for Voice, Sans for Data: display serif for human-authored headings only; all agent output is sans.",
+      "Two Line Strengths: line-strong when a boundary is a control, line when it is decoration.",
+      "Shadow Carries Elevation: borders stay at 1px and never do the lifting."
+    ],
+    "dos": [
+      "Keep terracotta on the primary action, the visitor's voice, and focus",
+      "Put dark ink on light chips for every status and check the pair clears 4.5:1",
+      "Set anything a human wrote in the serif and anything an agent produced in the sans",
+      "Let shadows carry elevation and keep borders at one pixel",
+      "Use line-strong for control boundaries and line for decoration",
+      "Give controls a 44px minimum target, 48px for the primary action",
+      "Keep the panels overlapping the hero; the overlap is the composition",
+      "Swap --hero-image to change the whole world's light in one line",
+      "Use tabular-nums wherever costs align down a column"
+    ],
+    "donts": [
+      "Add a second photograph",
+      "Put text on the photograph outside the scrim ramp",
+      "Reach for gradient text, gradient buttons, or a colored left rule",
+      "Introduce a dark scheme by inverting this one",
+      "Let status colors drift into brand colors, or brand colors into status",
+      "Animate width, height, or top; animate transform and opacity",
+      "Add a second serif or a third family",
+      "Use neutral grey for secondary text; tint it from the warm ink ramp"
+    ]
+  }
+}

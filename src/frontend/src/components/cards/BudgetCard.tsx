@@ -18,11 +18,8 @@ export function BudgetCard({ data, totalBudget }: Props) {
       <div className="agent-card-body">
         <div className="budget-bar-container" aria-hidden="true">
           <div
-            className="budget-bar-fill"
-            style={{
-              width: `${pctUsed}%`,
-              backgroundColor: overBudget ? '#ef4444' : '#22c55e',
-            }}
+            className={`budget-bar-fill ${overBudget ? 'budget-bar-over' : 'budget-bar-under'}`}
+            style={{ transform: `scaleX(${pctUsed / 100})` }}
           />
         </div>
 

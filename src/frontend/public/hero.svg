@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" role="presentation">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d97a52" />
+      <stop offset="0.32" stop-color="#e99a68" />
+      <stop offset="0.62" stop-color="#f3b984" />
+      <stop offset="0.85" stop-color="#fad6a6" />
+      <stop offset="1" stop-color="#ffe9c6" />
+    </linearGradient>
+
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fff6dc" stop-opacity="0.98" />
+      <stop offset="0.28" stop-color="#ffe3ab" stop-opacity="0.75" />
+      <stop offset="0.62" stop-color="#ffcb87" stop-opacity="0.32" />
+      <stop offset="1" stop-color="#ffbe74" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="meadow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c9a05e" />
+      <stop offset="0.35" stop-color="#a97f45" />
+      <stop offset="1" stop-color="#6b4f2c" />
+    </linearGradient>
+
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffdca5" stop-opacity="0.55" />
+      <stop offset="1" stop-color="#ffdca5" stop-opacity="0" />
+    </linearGradient>
+
+    <radialGradient id="vignette" cx="0.5" cy="0.45" r="0.78">
+      <stop offset="0.55" stop-color="#3a1e0c" stop-opacity="0" />
+      <stop offset="1" stop-color="#3a1e0c" stop-opacity="0.35" />
+    </radialGradient>
+
+    <filter id="haze" x="-15%" y="-60%" width="130%" height="260%">
+      <feGaussianBlur stdDeviation="18" />
+    </filter>
+    <filter id="softer" x="-15%" y="-60%" width="130%" height="260%">
+      <feGaussianBlur stdDeviation="7" />
+    </filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" />
+      <feColorMatrix type="saturate" values="0" />
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#sky)" />
+
+  <!-- low sun sitting just above the treeline -->
+  <ellipse cx="590" cy="548" rx="420" ry="300" fill="url(#sun)" />
+  <circle cx="590" cy="540" r="46" fill="#fff8e4" opacity="0.9" filter="url(#softer)" />
+
+  <!-- hazy far ridge -->
+  <path d="M0 566 C 180 528, 330 552, 470 540 C 640 526, 760 556, 900 546 C 1060 534, 1220 560, 1360 548 C 1460 540, 1540 552, 1600 546 L1600 640 L0 640 Z"
+        fill="#e0a67c" opacity="0.75" filter="url(#haze)" />
+
+  <!-- nearer ridge -->
+  <path d="M0 596 C 150 572, 290 594, 430 586 C 590 576, 700 600, 850 594 C 1010 588, 1160 606, 1310 596 C 1430 588, 1530 600, 1600 594 L1600 700 L0 700 Z"
+        fill="#c4885a" opacity="0.85" filter="url(#softer)" />
+
+  <!-- treeline silhouettes -->
+  <g fill="#8a6039" opacity="0.9">
+    <path d="M0 618 c 26 -6 34 -30 58 -30 c 22 0 30 20 52 22 c 24 2 34 -26 60 -24 c 26 2 30 26 56 28 c 28 2 38 -22 64 -20 c 24 2 32 22 58 22 c 26 0 36 -24 62 -22 c 24 2 30 24 56 24 c 28 0 40 -26 66 -22 c 22 4 28 22 54 22 c 26 0 38 -24 64 -22 c 24 2 32 24 58 24 c 28 0 36 -26 62 -24 c 26 2 32 26 58 26 c 24 0 34 -22 60 -22 c 26 0 34 22 60 22 c 24 0 34 -20 58 -20 c 24 0 32 18 54 18 c 20 0 28 -14 46 -16 L1600 640 L0 640 Z" />
+  </g>
+  <g fill="#5f4227" opacity="0.92">
+    <path d="M0 664 c 30 -10 40 -34 68 -34 c 26 0 34 24 62 26 c 30 2 40 -30 70 -28 c 28 2 34 30 64 32 c 32 2 42 -26 74 -24 c 28 2 36 26 66 26 c 30 0 42 -28 72 -26 c 28 2 34 28 64 28 c 32 0 44 -30 76 -26 c 26 4 32 26 62 26 c 30 0 42 -28 72 -26 c 28 2 36 28 66 28 c 32 0 42 -30 72 -28 c 30 2 36 30 66 30 c 28 0 38 -26 68 -26 c 30 0 40 26 70 26 c 26 0 36 -22 62 -22 L1600 700 L0 700 Z" />
+  </g>
+
+  <!-- meadow -->
+  <path d="M0 686 C 260 668, 520 700, 800 690 C 1080 680, 1340 704, 1600 688 L1600 1000 L0 1000 Z" fill="url(#meadow)" />
+
+  <!-- warm light spilling across the grass from the sun -->
+  <path d="M0 686 C 260 668, 520 700, 800 690 C 1080 680, 1340 704, 1600 688 L1600 840 L0 840 Z" fill="url(#glow)" />
+  <ellipse cx="600" cy="742" rx="520" ry="86" fill="#ffdaa0" opacity="0.3" filter="url(#haze)" />
+
+  <!-- backlit grass tufts catching the light -->
+  <g stroke="#f0c07c" stroke-width="2.5" stroke-linecap="round" opacity="0.42">
+    <path d="M120 906 q 10 -54 -6 -92" /><path d="M138 910 q 4 -50 16 -84" />
+    <path d="M362 884 q 12 -50 -4 -86" /><path d="M382 890 q 2 -46 18 -78" />
+    <path d="M690 930 q 14 -58 -4 -96" /><path d="M712 934 q 2 -52 20 -88" />
+    <path d="M1044 892 q 12 -52 -6 -88" /><path d="M1066 898 q 4 -48 20 -80" />
+    <path d="M1372 918 q 14 -56 -4 -94" /><path d="M1394 922 q 2 -50 20 -86" />
+  </g>
+  <g stroke="#6d4e2b" stroke-width="3" stroke-linecap="round" opacity="0.5">
+    <path d="M240 972 q 12 -60 -6 -102" /><path d="M262 978 q 2 -56 22 -94" />
+    <path d="M846 964 q 14 -62 -6 -104" /><path d="M870 970 q 2 -58 22 -96" />
+    <path d="M1218 976 q 12 -60 -8 -100" />
+  </g>
+
+  <rect width="1600" height="1000" fill="url(#vignette)" />
+  <rect width="1600" height="1000" filter="url(#grain)" opacity="0.05" style="mix-blend-mode:overlay" />
+</svg>
