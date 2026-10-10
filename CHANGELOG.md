@@ -26,8 +26,9 @@ No merged pull requests this week (October 3–10, 2026). Repository is stable.
 ### 🔧 Fixed
 
 - **CD Deployment** (#24)
-  - Fixed CD deployment failures by allowing AddRedis to auto-generate cache password
-  - Eliminated manual password management requirements
+  - Fixed CD deployment failures by resolving OIDC federation and cache-password issues
+  - Added missing production federated identity credential (Azure-side fix)
+  - Removed explicit cache password parameter, allowing AddRedis auto-generation
   - Improved deployment reliability and automation
 
 - **CI/CD Runtime** (#21)
@@ -38,27 +39,35 @@ No merged pull requests this week (October 3–10, 2026). Repository is stable.
 ### 🔐 Security
 
 - **Cache Container Ingress Security** (#23)
-  - Investigated and documented cache container ingress security finding
-  - Created comprehensive security documentation
-  - Enhanced awareness of container security posture
+  - Investigated SecOps report of publicly exposed cache container
+  - Verified current code produces internal-only ingress for cache (not externally exposed)
+  - Upgraded Aspire packages to 13.4.6 for security hygiene
+  - Added defensive code comment documenting cache must never have external ingress
+  - Confirmed live environment matches code-level security posture
 
 - **Production Authentication** (#20)
-  - Added production OIDC federated credential
-  - Implemented federated identity for secure authentication
-  - Improved authentication security posture
+  - Added GitHub Environment federated credential for production CD environment
+  - Fixed OIDC setup scripts to create proper `github-production` subject
+  - Documented production-environment authentication requirements
 
 ### 📚 Documentation
 
-- **Security Assessment** (#22)
+- **Security Assessment** (#23, resolving #22)
   - Investigated and documented cache container ingress security finding
-  - Created detailed analysis and remediation guidance
+  - Created detailed analysis confirming security posture is correct
+  - Added recommendations for environment hardening
 
 ### 📦 Infrastructure
 
-- **Azure Resource Naming** (#16)
+- **Azure Resource Naming** (#15)
   - Prefixed Azure resource group with `rg-picnic-planner-`
   - Standardized naming convention for better resource organization
   - Improved resource management and discoverability
+
+- **CI/CD Gitops Infrastructure** (#16)
+  - Scaffolded CI/CD pipeline with Gitops approach
+  - Established infrastructure-as-code patterns with Bicep
+  - Improved deployment automation
 
 - **CD Workflow Flexibility** (#14)
   - Allow CD workflow to read Azure configuration from vars or secrets
